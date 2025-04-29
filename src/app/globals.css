@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+
+@theme {
+  --color-customYellow: #A97400;
+  --color-customGray:#C5C5C54D;
+  --shadow-custom: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --shadow-normal: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+                   rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em
+                   rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  --shadow-base: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  --shadow-newNormal: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  --color-customBlack:#353434;
+    
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -8,19 +22,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter); 
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
