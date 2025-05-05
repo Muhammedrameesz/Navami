@@ -20,7 +20,7 @@ export default function OurTeam() {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:grid-cols-4 px-6 md:px-10 mx-auto max-w-7xl  justify-items-center">
         {Team.map((item, i) => (
           <div key={i}>
-            <div className="rounded-2xl w-full max-w-[300px] aspect-square overflow-hidden">
+            <div className="rounded-2xl w-full max-w-[300px] min-h-[350px] aspect-square overflow-hidden">
               <Image
                 src={item.pic}
                 alt={item.name}

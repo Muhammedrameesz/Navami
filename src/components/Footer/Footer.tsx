@@ -1,5 +1,5 @@
 "use client";
-import { Facebook,InstagramIcon, Twitter } from "lucide-react";
+import { ExternalLink, Facebook, InstagramIcon, Twitter } from "lucide-react";
 import Logo from "@/images/Logo/NAVAMI 2.png";
 import Image from "next/image";
 
@@ -8,8 +8,10 @@ export default function Footer() {
     <div>
       <footer className="bg-gray-100 text-gray-700 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 
-                           gap-8 mx-auto justify-center max-w-7xl px-4">
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 
+                           gap-8 mx-auto justify-center max-w-7xl px-4"
+          >
             {/* Grid Item 1 */}
             <div>
               <h3 className="text-xl font-semibold text-customYellow mb-4">
@@ -87,12 +89,22 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </footer>
-      <p className="text-sm text-gray-600 bg-white text-center py-3">
-        www.cozaktechnologies.com
+      <p className="text-sm text-gray-600 bg-white text-center py-3 flex items-center justify-center gap-1">
+        <a
+          href="https://www.cozaktechnologies.in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline font-medium inline-flex items-center gap-1"
+        >
+          www.cozaktechnologies.in
+          <ExternalLink className="w-4 h-4" />
+        </a>
+        <span className="text-gray-500">
+          | © {new Date().getFullYear()} All rights reserved
+        </span>
       </p>
     </div>
   );

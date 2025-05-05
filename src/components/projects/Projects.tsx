@@ -10,6 +10,8 @@ import { CheckCircle, Clock, RefreshCw } from "lucide-react";
 export default function Projects() {
   const { Projects, loading, error } = useProjects();
 
+  const activeProjects = Projects.filter((i)=>i.project_status==="Completed")
+
   return (
     <div className="bg-white text-gray-900 py-14">
       <h1 className="text-customYellow text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 tracking-wide">
@@ -35,7 +37,7 @@ export default function Projects() {
       )}
 
       <section className="   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-10 mx-auto max-w-6xl mt-10 md:mt-16">
-        {Projects?.map((item, i) => (
+        {activeProjects?.map((item, i) => (
           <div
             key={i}
             className="relative bg-gray-100 rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"

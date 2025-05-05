@@ -44,11 +44,11 @@ export default function UpcomingProjects() {
                 alt={item.name}
                 className="w-full h-auto object-cover"
               />
-              <div className="p-4">
-                <h1 className="text-customYellow font-semibold text-lg">
+              <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-white/90 to-transparent p-4">
+                <h1 className="text-gray-900 font-semibold text-lg">
                   {item.name}
                 </h1>
-                <h2 className="text-customYellow text-lg">{item.place}</h2>
+                <p className="text-sm text-gray-700">{item.place}</p>
               </div>
             </div>
           ))}
