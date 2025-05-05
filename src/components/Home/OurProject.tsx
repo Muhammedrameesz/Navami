@@ -1,49 +1,20 @@
 "use client";
 
-import image1 from "@/images/projects/image1.png";
-import image2 from "@/images/projects/image2.png";
-import image3 from "@/images/projects/image3.png";
-import image4 from "@/images/projects/image4.png";
-import image5 from "@/images/projects/image5.png";
-import image6 from "@/images/projects/image6.png";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import BackgroundBanner from "@/images/Home/Banner.jpg";
+import useProjects from "@/customHooks/useProjects";
+import Loader from "../ui/Loader";
+import ErrorMessage from "../ui/ErrorMessage";
 
 export default function OurProject() {
+
+  const {Projects,loading,error} = useProjects()
   const router = useRouter();
-  interface projectTypes {
-    title: string;
-    image: StaticImageData;
-  }
+ 
 
-  const projectItems: projectTypes[] = [
-    {
-      title: "Residence for Mr.thomas pattimattom",
-      image: image1,
-    },
-    {
-      title: "Residence for Mr.rajesh punnorcode",
-      image: image2,
-    },
-    {
-      title: "Residence for Mr.subash punnorcode",
-      image: image3,
-    },
-
-    {
-      title: "Villa project pukkattupady",
-      image: image4,
-    },
-    {
-      title: "Residance for kamal",
-      image: image5,
-    },
-    {
-      title: "Residence for Mr. Ashok punnorcode ",
-      image: image6,
-    },
-  ];
+  if(loading) return <div><Loader/></div>
+  if(error) return <div><ErrorMessage message={error}/></div>
 
   return (
     <div className=" text-gray-900 min-h-screen ">
@@ -60,7 +31,7 @@ export default function OurProject() {
                           px-6 md:px-10 mx-auto max-w-7xl min-h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${BackgroundBanner.src})` }}
       >
-        {projectItems.map((item, i) => (
+        {Projects?.map((item, i) => (
           <div
             key={i}
             className={`relative flex flex-col items-center justify-center border-2 p-5 lg:p-0 border-customYellow rounded-br-2xl 
@@ -68,13 +39,13 @@ export default function OurProject() {
                   i === 1 ? "bg-customYellow" : "bg-white"
                 }`}
           >
-            <div className="lg:absolute lg:-right-2 lg:top-0 lg:-translate-y-1/2 ">
+            <div className="lg:absolute lg:-right-1 lg:top-0 lg:-translate-y-1/2 ">
               <Image
-                alt={item.title}
-                src={item.image}
+                alt={item.name}
+                src={item.pic}
                 width={300}
                 height={300}
-                className="object-cover"
+                className="object-cover rounded-2xl"
               />
             </div>
             <h1
@@ -82,7 +53,7 @@ export default function OurProject() {
                 i === 1 ? "text-white" : "text-customYellow"
               } font-medium max-w-xs`}
             >
-              {item.title}
+              {item.name}
             </h1>
           </div>
         ))}
@@ -91,7 +62,7 @@ export default function OurProject() {
       <button
         onClick={() => router.push("/projects")}
         type="button"
-        title="button"
+        title="See All Our Projects"
         className="bg-customYellow my-5 px-6 py-2 rounded-full text-white  text-lg font-medium mx-auto flex justify-center items-center cursor-pointer hover:bg-customYellow/90 transition-colors duration-300"
       >
         See All Our Projects
